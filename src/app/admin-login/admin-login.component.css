@@ -1,0 +1,148 @@
+.container-fluid{
+    min-height: 100vh;
+    background: url("https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/rMGHrc5h-VOX-Cinemas.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-box {
+    margin-top: 90px;
+    margin-left:50px ;
+    height: auto;
+    width:auto;
+    background: #1A2226;
+    text-align: center;
+    background-color: #717479;
+  background: rgba( 240, 223, 193, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  -webkit-backdrop-filter: blur( 4.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background-size: 300%;
+}
+
+.login-key {
+    height: 100px;
+    font-size: 80px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-title {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: -50px;
+    font-weight: bold;
+    color: #ECF0F5;
+}
+
+.login-form {
+    margin-top: 25px;
+    margin-left: 32px;
+    margin-right: 32px;
+    /* margin:25px 25px 25px 25px; */
+    text-align: left;
+}
+
+input[type=text] {
+    background-color: white;
+    border: none;
+    border-bottom: 5px solid #e4bd3c;
+    width:500px;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    margin-bottom: 20px;
+    padding-left: 20px;
+  
+}
+
+input[type=password] {
+    background-color: white;
+    border: none;
+    border-bottom: 5px solid #e4bd3c;
+    width:500px;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 40px;
+    outline: 0px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 5px solid #0DB8DE;
+    outline: 0;
+    background-color: #1A2226;
+    color: #ECF0F5;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.form-control-label {
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+    border-color: #e4bd3c;
+    color: #0DB8DE;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btn-outline-primary:hover {
+    background-color: white;
+    border-color: #e4bd3c;
+    color:black;
+    right: 0px;
+}
+
+.login-btm {
+    float: left;
+}
+
+.login-button {
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.login-text {
+    text-align: left;
+    padding-left: 0px;
+    color: #A2A4A4;
+}
+
+.loginbttm {
+    padding: 0px;
+}
+
+.btn{
+    background-color: #e4bd3c;
+    color:#fff;
+    width:100px;
+}

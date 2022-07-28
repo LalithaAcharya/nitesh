@@ -1,0 +1,203 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="section">
+    <div class="container1">
+        <button class="btn"  (click)="open(mymodal)" >Add Theater</button>
+        <h2>Theater</h2>
+        <button class="btn" style="width:100px" routerLink="/adminHome">Back</button>
+    </div>  
+
+    <ng-template #mymodal let-modal class="modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Add Theater</h4>
+                <button type="button" class="close p-1" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                <div class="md-form mb-2">
+                  <i class="fas fa-envelope prefix grey-text"></i>
+                  <input type="email" id="defaultForm" class="form-control validate">
+                  <label>Theater name</label>
+                </div>
+        
+                <div class="md-form mb-2">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="defaultForm" class="form-control validate">
+                    <label>Location</label>
+                  </div>
+
+                  <div class="md-form mb-2">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input id="defaultForm" class="form-control validate">
+                    <label >Screens</label>
+                  </div>
+
+                  <div class="md-form mb-2">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input id="defaultForm" class="form-control validate">
+                    <label>Movies</label>
+                  </div>
+        
+                  <div class="md-form mb-2">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="defaultForm" class="form-control validate">
+                    <label>Rateing</label>
+                  </div> 
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Submit</button>
+          <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Cancel</button>
+        </div>
+      </ng-template>
+    
+<table class="rwd-table">
+    <tbody>
+      <tr>
+        <th>Theater Name</th>
+        <th>Location</th>
+        <th>Screens</th>
+        <th>Movies</th>
+        <th>Rateing</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td data-th="Supplier Code">
+          UPS5005
+        </td>
+        <td data-th="Supplier Name">
+          UPS
+        </td>
+        <td data-th="Invoice Number">
+          ASDF19218
+        </td>
+        <td data-th="Invoice Date">
+          06/25/2016
+        </td>
+        <td data-th="Net Amount">
+          $8,322.12
+        </td>
+        <td data-th="Net Amount">
+            <button class="btn">Delete</button>
+            <button class="btn" (click)="open(mymodal1)">Edit</button>
+          </td>
+      </tr>
+      <tr>
+        <td data-th="Supplier Code">
+          UPS3449
+        </td>
+        <td data-th="Supplier Name">
+          UPS South Inc.
+        </td>
+        <td data-th="Invoice Number">
+          ASDF29301
+        </td>
+        <td data-th="Invoice Date">
+          6/24/2016
+        </td>
+        <td data-th="Net Amount">
+          $3,255.49
+        </td>
+        <td data-th="Net Amount">
+            <button class="btn">Delete</button>
+            <button class="btn"  (click)="open(mymodal1)">Edit</button>
+          </td>
+      </tr>
+      <tr>
+        <td data-th="Supplier Code">
+          BOX5599
+        </td>
+        <td data-th="Supplier Name">
+          BOX Pro West
+        </td>
+        <td data-th="Invoice Number">
+          ASDF43000
+        </td>
+        <td data-th="Invoice Date">
+          6/27/2016
+        </td>
+        <td data-th="Net Amount">
+          $45,255.49
+        </td>
+        <td data-th="Net Amount">
+            <button class="btn">Delete</button>
+            <button class="btn" (click)="open(mymodal1)">Edit</button>
+          </td>
+      </tr>
+      <tr>
+        <td data-th="Supplier Code">
+          PAN9999
+        </td>
+        <td data-th="Supplier Name">
+          Pan Providers and Co.
+        </td>
+        <td data-th="Invoice Number">
+          ASDF33433
+        </td>
+        <td data-th="Invoice Date">
+          6/29/2016
+        </td>
+        <td data-th="Net Amount">
+          $12,335.69
+        </td>
+        <td data-th="Net Amount">
+            <button class="btn">Delete</button>
+            <button class="btn" (click)="open(mymodal1)">Edit</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #mymodal1 let-modal class="modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Edit Theater</h4>
+            <button type="button" class="close p-1" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-2">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="email" id="defaultForm" class="form-control validate">
+              <label>Theater name</label>
+            </div>
+    
+            <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="defaultForm" class="form-control validate">
+                <label>Location</label>
+              </div>
+
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input id="defaultForm" class="form-control validate">
+                <label >Screens</label>
+              </div>
+
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input id="defaultForm" class="form-control validate">
+                <label>Movies</label>
+              </div>
+    
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="defaultForm" class="form-control validate">
+                <label>Rateing</label>
+              </div> 
+          </div>
+        </div>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Submit</button>
+      <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
+
+</div>
+
