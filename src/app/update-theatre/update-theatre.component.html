@@ -1,0 +1,69 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="section">
+   <div class="container">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Edit Theatre</h4>
+            <!-- <button type="button" class="close p-1" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-2">
+              <i class="fas fa-envelope prefix grey-text">Theatre</i>
+              <input type="text" id="defaultForm" class="form-control validate" name="theatre_name" [(ngModel)]="theatre.theatre_name">
+              <!-- <label>Theatre</label> -->
+            </div>
+
+            <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Location</i>
+                <input type="text" id="defaultForm" class="form-control validate" name="location" [(ngModel)]="theatre.location">
+                <!-- <label>Location</label> -->
+              </div>
+    
+            <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Seats</i>
+                <input type="text" id="defaultForm" class="form-control validate" name="no_of_screens" [(ngModel)]="theatre.no_of_screens">
+              </div>
+
+              <div class="md-form mb-2" >
+                <i class="fas fa-envelope prefix grey-text">Movies</i>  
+                <select  class="form-control"  name="movie_name" [(ngModel)]="theatre.movie_name"> 
+                   <option>Choose Movie</option>
+                  <option *ngFor="let mov of movies">{{mov.movie_name}}</option> 
+                    <!-- <option>{{mov.movie_name}}</option>   -->
+                    <!-- <option>Choose Website</option>  
+                    <option >cghjk,mcfyuio,m</option>   -->
+                </select>  
+
+              <!-- <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input id="defaultForm" class="form-control validate" name="hero" [(ngModel)]="movie.hero">
+                <label >Hero</label>
+              </div>
+
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input id="defaultForm" class="form-control validate" name="heroien" [(ngModel)]="movie.heroien">
+                <label>Heroien</label>
+              </div>
+    
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="file" id="defaultForm" class="form-control validate" name="poster" [(ngModel)]="movie.poster">
+                <label>Poster</label>
+              </div>  -->
+
+              <!-- <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="defaultForm" class="form-control validate">
+                <label>Discription</label>
+              </div> -->
+          </div>
+     
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <button type="button" routerLink="/addTheater" class="btn btn-primary" >Cancel</button>
+    </div>
+    </div>
+    </div>
+ 

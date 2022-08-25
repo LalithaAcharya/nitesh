@@ -15,53 +15,122 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body mx-3">
-                <div class="md-form mb-2">
-                  <i class="fas fa-envelope prefix grey-text"></i>
-                  <input type="email" id="defaultForm" class="form-control validate">
-                  <label>Movie name</label>
+              <form class="modal-body mx-3"  #myForm="ngForm">
+                <div class="md-form mb-2" >
+                  <i class="fas fa-envelope prefix grey-text">Movie name</i>
+                  <input type="text" id="defaultForm" class="form-control"  required minlength="4" appForbiddenName="bob" name="movie_name" [(ngModel)]="movie.movie_name"  #name="ngModel">
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                      class="alert">
+                    <div *ngIf="name.errors?.['required']">
+                     Name is required.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                      </div>
+                       <div *ngIf="name.errors?.['forbiddenName']">
+                         Name cannot be Bob.
+                      </div>
+
+                  </div>
+                  <!-- <label>Movie name</label> -->
                 </div>
 
                 <div class="md-form mb-2">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm" class="form-control validate">
-                    <label>Language</label>
+                    <i class="fas fa-envelope prefix grey-text">Language</i>
+                    <input type="text" id="defaultForm" class="form-control" required name="language" [(ngModel)]="movie.language"  #language="ngModel">
+                    <div *ngIf="language.invalid && (language.dirty || language.touched)"
+                      class="alert">
+                    <div *ngIf="language.errors?.['required']">
+                     language is required.
+                    </div>
+                    </div>
                   </div>
         
                 <div class="md-form mb-2">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm" class="form-control validate">
-                    <label>Director</label>
+                    <i class="fas fa-envelope prefix grey-text">Director</i>
+                    <input type="text" id="defaultForm" class="form-control" required minlength="4" appForbiddenName="bob" name="director" [(ngModel)]="movie.director" #director="ngModel">
+                    <div *ngIf="director.invalid && (director.dirty || director.touched)"
+                    class="alert">
+                  <div *ngIf="director.errors?.['required']">
+                    Director is required.
+                  </div>
+                  <div *ngIf="director.errors?.['minlength']">
+                    Director must be at least 4 characters long.
+                    </div>
+                     <div *ngIf="director.errors?.['forbiddenName']">
+                      Director cannot be Bob.
+                    </div>
+                    
+
+                </div>
+               </div>
+
+                  <div class="md-form mb-2">
+                    <i class="fas fa-envelope prefix grey-text">Hero</i>
+                    <input id="defaultForm" class="form-control"  required minlength="4" appForbiddenName="bob" name="hero" [(ngModel)]="movie.hero" #hero="ngModel">
+                    <div *ngIf="hero.invalid && (hero.dirty || hero.touched)"
+                    class="alert">
+                  <div *ngIf="hero.errors?.['required']">
+                    Hero is required.
+                  </div>
+                  <div *ngIf="hero.errors?.['minlength']">
+                    Hero must be at least 4 characters long.
+                    </div>
+                     <div *ngIf="hero.errors?.['forbiddenName']">
+                      Hero cannot be Bob.
+                    </div>
+                  </div>
                   </div>
 
                   <div class="md-form mb-2">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input id="defaultForm" class="form-control validate">
-                    <label >Hero</label>
+                    <i class="fas fa-envelope prefix grey-text">Heroien</i>
+                    <input id="defaultForm" class="form-control" required minlength="4" appForbiddenName="bob" name="heroien" [(ngModel)]="movie.heroien" #heroien="ngModel">
+                    <div *ngIf="heroien.invalid && (heroien.dirty || heroien.touched)"
+                    class="alert">
+                  <div *ngIf="heroien.errors?.['required']">
+                    Heroien is required.
                   </div>
-
-                  <div class="md-form mb-2">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input id="defaultForm" class="form-control validate">
-                    <label>Heroien</label>
+                  <div *ngIf="heroien.errors?.['minlength']">
+                    Heroien must be at least 4 characters long.
+                    </div>
+                     <div *ngIf="heroien.errors?.['forbiddenName']">
+                      Heroien cannot be Bob.
+                    </div>
                   </div>
-        
+                    </div>
                   <div class="md-form mb-2">
+                    <i class="fas fa-envelope prefix grey-text">Discription</i>
+                    <input id="defaultForm"  class="form-control" required minlength="4" appForbiddenName="bob" name="discription" [(ngModel)]="movie.discription" #dis="ngModel">
+                    <div *ngIf="dis.invalid && (dis.dirty || heroien.touched)"
+                    class="alert">
+                    <div *ngIf="dis.errors?.['required']">
+                      Discription is required.
+                    </div>
+                    <div *ngIf="dis.errors?.['minlength']">
+                      Discription must be at least 4 characters long.
+                      </div>
+                       <div *ngIf="dis.errors?.['forbiddenName']">
+                        Discription cannot be Bob.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- <div class="md-form mb-2" *ngFor="let file of mov.movieImages">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm" class="form-control validate">
-                    <label>Release Date</label>
-                  </div> 
+                    <img [src]="file.url" width="100" height="100">
+                    <label>poster</label>
+                  </div>  -->
 
-                  <div class="md-form mb-5">
+                  <!-- <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="email" id="defaultForm" class="form-control validate">
                     <label>Discription</label>
+                  </div> -->
+                </form>
                   </div>
               </div>
-            </div>
-          </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Submit</button>
+          <button type="button" class="btn btn-primary" [disabled]="!myForm.form.valid" (click)="onsubmit()">Submit</button>
           <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Cancel</button>
         </div>
       </ng-template>
@@ -74,72 +143,38 @@
         <th>Director</th>
         <th>Hero</th>
         <th>Heroien</th>
-        <th>Price</th>
-        <th>Release Date</th>
         <th>Discription</th>
         <th>Action</th>
       </tr>
-      <tr>
-        <td data-th="Supplier Code">
-          UPS5005
-        </td>
-        <td data-th="Supplier Name">
-          UPS
-        </td>
-        <td data-th="Supplier Name">
-            UPS
+      <tr *ngFor="let mov of movies">
+        <td>{{mov.movie_name}}</td>
+        <!-- <td >
+          <img src="{{mov.poster}}" width="100px" height="100px">
+        </td> -->
+        <td>
+          {{mov.language}}
           </td>
-        <td data-th="Invoice Number">
-          ASDF19218
-        </td>
-        <td data-th="Invoice Number">
-          ASDF19218
+        <td>
+          {{mov.director}}
         </td>
         <td data-th="Invoice Date">
-          06/25/2016
+          {{mov.hero}}
         </td>
-        <td data-th="Due Date">
-          12/25/2016
+        <td>
+          {{mov.heroien}}
         </td>
-        <td data-th="Net Amount">
-          $8,322.12
+        <td>
+         {{mov.discription}}
         </td>
-        <td data-th="Net Amount">
-            <button class="btn">Delete</button>
-            <button class="btn" (click)="open(mymodal1)">Edit</button>
-          </td>
-      </tr>
-      <tr>
-        <td data-th="Supplier Code">
-          UPS3449
-        </td>
-        <td data-th="Supplier Name">
-          UPS South Inc.
-        </td>
-        <td data-th="Supplier Name">
-            UPS
-          </td>
-        <td data-th="Invoice Number">
-          ASDF29301
-        </td>
-        <td data-th="Invoice Date">
-          6/24/2016
-        </td>
-        <td data-th="Invoice Number">
-          ASDF19218
-        </td>
-        <td data-th="Due Date">
-          12/25/2016
-        </td>
-        <td data-th="Net Amount">
+        <!-- <td data-th="Net Amount">
           $3,255.49
-        </td>
-        <td data-th="Net Amount">
-            <button class="btn">Delete</button>
-            <button class="btn"  (click)="open(mymodal1)">Edit</button>
+        </td> -->
+        <td>
+            <button class="btn" (click)="deletepost(mov.movie_id)">Delete</button>
+            <button class="btn"  (click)="update(mov.movie_id)">Edit</button>
           </td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td data-th="Supplier Code">
           BOX5599
         </td>
@@ -198,11 +233,10 @@
             <button class="btn">Delete</button>
             <button class="btn" (click)="open(mymodal1)">Edit</button>
           </td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
-
-  <ng-template #mymodal1 let-modal class="modal">
+  <!-- <ng-template #mymodal1 let-modal class="modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
@@ -214,53 +248,53 @@
           <div class="modal-body mx-3">
             <div class="md-form mb-2">
               <i class="fas fa-envelope prefix grey-text"></i>
-              <input type="email" id="defaultForm" class="form-control validate">
+              <input type="text" id="defaultForm" class="form-control validate" name="movie_name" [(ngModel)]="movie.movie_name">
               <label>Movie name</label>
             </div>
 
             <div class="md-form mb-2">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input type="email" id="defaultForm" class="form-control validate">
+                <input type="text" id="defaultForm" class="form-control validate" name="language" [(ngModel)]="movie.language">
                 <label>Language</label>
               </div>
     
             <div class="md-form mb-2">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input type="email" id="defaultForm" class="form-control validate">
+                <input type="text" id="defaultForm" class="form-control validate" name="director" [(ngModel)]="movie.director">
                 <label>Director</label>
               </div>
 
               <div class="md-form mb-2">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input id="defaultForm" class="form-control validate">
+                <input id="defaultForm" class="form-control validate" name="hero" [(ngModel)]="movie.hero">
                 <label >Hero</label>
               </div>
 
               <div class="md-form mb-2">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input id="defaultForm" class="form-control validate">
+                <input id="defaultForm" class="form-control validate" name="heroien" [(ngModel)]="movie.heroien">
                 <label>Heroien</label>
               </div>
     
               <div class="md-form mb-2">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input type="email" id="defaultForm" class="form-control validate">
-                <label>Release Date</label>
+                <input type="file" id="defaultForm" class="form-control validate" name="poster" [(ngModel)]="movie.poster">
+                <label>Poster</label>
               </div> 
 
-              <div class="md-form mb-5">
+              <!-- <div class="md-form mb-5">
                 <i class="fas fa-envelope prefix grey-text"></i>
                 <input type="email" id="defaultForm" class="form-control validate">
                 <label>Discription</label>
-              </div>
-          </div>
+              </div> -->
+          <!-- </div>
         </div>
       </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Submit</button>
+      <button type="button" class="btn btn-primary" >Submit</button>
       <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Cancel</button>
     </div>
-  </ng-template>
+  </ng-template> -->
 
 </div>
 

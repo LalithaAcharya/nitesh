@@ -12,40 +12,52 @@
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h2 class="mb-4 pb-3">Log In</h2>
-                                        <div class="form-group">
-                                            <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-                                            <i class="input-icon uil uil-at"></i>
-                                        </div>	
-                                        <div class="form-group mt-2">
-                                            <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-                                            <i class="input-icon uil uil-lock-alt"></i>
-                                        </div>
-                                        <a href="/userHome" class="btn mt-4">submit</a>
-                                        <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
-                                        <p class="mb-0 mt-2 text-center">Or</p>
-                                        <a href="/admin" class="btn mt-1">Admin</a>
+                                        <form class="form-group" [formGroup]="loginForm" (ngSubmit)="loginUser()"><br>
+                                            <small class="danger">{{msg}}</small>
+                                            <div class="mb-3">
+                                              <!-- <label for="email" class="form-label">Email address</label> -->
+                                              <input formControlName="email" placeholder="Email" class="form-control" type="email"  id="email" aria-describedby="emailHelp" name="emailId" [(ngModel)]="user.emailId"><br>
+                                              <span class="text-danger"  *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">*Email Id is required</span>
+                                            </div>
+                                            <div class="mb-3">
+                                              <!-- <label for="pwd" class="form-label">Password</label> -->
+                                              <input formControlName="password" placeholder="Password" type="password" class="form-control" id="pwd"  name="password" [(ngModel)]="user.password"><br>
+                                              <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password is required</span>
+                                            </div>
+                                            <button type="submit" class="btn mt-1" [disabled]="!loginForm.valid">Login</button>
+                                            <p class="mb-0 mt-2 text-center">Or</p>
+                                            <a href="/admin" class="btn mt-1">Admin</a>
+                                        </form>
                                       </div>
                                   </div>
                               </div>
                             <div class="card-back">
                                 <div class="center-wrap">
                                     <div class="section text-center">
-                                        <h4 class="mb-4 pb-3">Sign Up</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
-                                            <i class="input-icon uil uil-user"></i>
-                                        </div>	
-                                        <div class="form-group mt-2">
-                                            <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-                                            <i class="input-icon uil uil-at"></i>
-                                        </div>	
-                                        <div class="form-group mt-2">
-                                            <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-                                            <i class="input-icon uil uil-lock-alt"></i>
-                                        </div>
-                                        <a href="/userHome" class="btn mt-4">submit</a>
-                                        <p class="mb-0 mt-2 text-center">Or</p>
+                                        <h4 class="mb-4 pb-3" style="color:white">Sign Up</h4>
+                                        <form>
+                                            <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                                              <small class="danger">{{msg}}</small>
+                                              <div class="mb-3">
+                                                <!-- <label for="name" class="form-label">Name</label> -->
+                                                <input formControlName="fullName" placeholder="Enter your name" type="text" class="form-field animation a3" id="name" name="userName" [(ngModel)]="user.userName">
+                                                <span class="text-danger" style="font-size:12px;" *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.hasError('required','fullName')">*Username is required</span>
+                                              </div>
+                                              <div class="mb-3">
+                                                <!-- <label for="email" class="form-label">Email address</label> -->
+                                                <input formControlName="email" placeholder="Enter your email" type="email"class="form-field animation a3" id="email" aria-describedby="emailHelp"  name="emailId" [(ngModel)]="user.emailId">
+                                                <span class="text-danger" style="font-size:12px;" *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')">*Email Id is required</span>
+                                              </div>
+                                              <div class="mb-3">
+                                                <!-- <label for="pwd" class="form-label">Password</label> -->
+                                                <input formControlName="password" placeholder="Enter your password" type="password" class="form-field animation a4" id="pwd" name="password" [(ngModel)]="user.password">
+                                                <span class="text-danger" style="font-size:12px;" *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">*Password is required</span>
+                                              </div>
+                                              <button class="btn mt-1" type="submit"  [disabled]="!signUpForm.valid">Register</button>
+                                              <p class="mb-0 mt-2 text-center">Or</p>
                                         <a href="/admin" class="btn mt-1">Admin</a>
+                                            </form>
+                                            </form>
                                       </div>
                                   </div>
                               </div>

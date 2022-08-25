@@ -1,0 +1,22 @@
+.section{
+    min-height:88.2vh;
+    height:auto;
+    width:100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to left bottom, #ffffff, #cbc6e0, #9890c0, #675da1, #312e81);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    width:50%;
+    background-color: white;
+}
+
+input{
+    width:500px;
+    border:3px solid #312e81;
+}
+input:focus{
+    border:3px solid #e4bd3c;
+}

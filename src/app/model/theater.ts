@@ -1,8 +1,8 @@
 export class Theater{
-    theaterId!:number;
-    theaterName!:string;
-    screens!:number;
-    movies!:string;
+    theatre_id!:number;
+    theatre_name!:string;
+    no_of_screens:number=200;
     location!:string;
-    rating!:number;
+    movie_name!:string;
+    // rating!:number;
 }

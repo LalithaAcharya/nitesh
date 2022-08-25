@@ -2,23 +2,54 @@
 <div class="section">
   <div class="container-fluid">
     <h2>Streaming Movies</h2>
-    <button>More</button>
+    <!-- <button>More</button> -->
   </div>
     <div class="container">
-        <div class="card">
+      <div class="card" *ngFor="let mov of movies">
+        <div class="title">
+      <h1>{{mov.movie_name}}</h1>
+      <h2>Language: {{mov.language}}</h2>
+    </div>
+    <div class="content">
+  <div class="social">
+         <h2><strong>Overview</strong></h2>
+      <h2>Director:
+       {{mov.director}}</h2>
+      </div>
+      
+  <div class="social">
+    <h2>Hero:
+      {{mov.hero}}</h2>
+      </div>
+      
+  <div class="social">
+    <h2>Heroien:
+      {{mov.heroien}}</h2>
+      </div>
+    <div class="social">
+      <h2>Discription:
+        {{mov.discription}}</h2>
+        <!-- <i class="fa-solid fa-camera-movie"></i> -->
+        </div>
+        <button  class="btn"  (click)="openModal('custom-modal-1')">Book Ticket</button>
+    </div>
+  <div class="circle"><i class='fa fa-video-camera'></i></div>
+  </div>
+  </div>
+    <!-- <div class="container">
+        <div class="card" *ngFor="let mov of movies">
           <div class="face face1">
             <div class="content">
-              <h2>Charlie</h2>
-              <button (click)="openModal('custom-modal-1')">Book your ticket</button>
-              <button (click)="openModal('custom-modal-2')">View Details</button>
-              <!-- <button (click)="openModal('custom-modal-2')">Open Modal 2</button> -->
+              <h2>{{mov.movie_name}}</h2>
+              <button  (click)="openModal('custom-modal-1')">Book your ticket</button>
+              <button (click)="onDetails(mov.movie_id)">View Details</button>
             </div>
           </div>
           <div class="face face2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDljMWQxZjQtODllNi00MzljLTg3ZGUtNDU4Zjk2NTAzMWQ2XkEyXkFqcGdeQXVyNDY3NTMzOTM@._V1_.jpg" alt="charlie">
           </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
           <div class="face face1">
             <div class="content">
               <h2>Charlie</h2>
@@ -39,24 +70,12 @@
             </div>
           </div>
           <div class="face face2">
-            <img src="https://m.media-amazon.com/images/M/MV5BNDljMWQxZjQtODllNi00MzljLTg3ZGUtNDU4Zjk2NTAzMWQ2XkEyXkFqcGdeQXVyNDY3NTMzOTM@._V1_.jpg" alt="charlie">
-          </div>
-        </div>
-        <div class="card">
-          <div class="face face1">
-            <div class="content">
-              <h2>Charlie</h2>
-              <button routerLink="/movieDetail">Book your ticket</button>
-              <button (click)="openModal('custom-modal-2')">View Details</button>
-            </div>
-          </div>
-          <div class="face face2">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
           </div>
-        </div>
+        </div> -->
       </div>
 
-      <div class="container-fluid">
+      <!-- <div class="container-fluid">
         <h2>Kannada Movies</h2>
         <button>More</button>
       </div>
@@ -382,27 +401,27 @@
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
                                   </div>
                                 </div>
-                              </div>
-</div>
+                              </div> -->
+
 
 <jw-modal id="custom-modal-2">
-    <div class="con">
+    <div class="con" *ngIf="movie">
        <div class="first">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU">
        </div>
        <div class="third">
-       <div class="second">
-        <h1>Jeams</h1>
-        <p>Hero : Puneeth Rajkumar</p>
-        <p>Heroin : Priya Anand</p>
-        <p>Dairector : Chethan Kumar</p>
+       <div class="second" *ngIf="movies">
+        <h1>{{movie.movie_name}}</h1>
+        <p>Hero : {{movie.hero}}</p>
+        <p>Heroin : {{movie.heroien}}</p>
+        <p>Dairector : {{movie.director}}</p>
         <p>Release Date: 17 March 2022</p>
         <p>Price: 250Rs</p>
         <p>Discription: James is a 2022 Indian Kannada-language action drama film written and directed by Chethan Kumar. It stars Puneeth Rajkumar and Priya Anand. This is Puneeth's posthumous appearance following his death on 29 October 2021. The film marked the second collaboration between Puneeth, Priya and Sarathkumar after Raajakumara. </p>
         </div>
         <div class="fourth">
           <button>Watch Trailer</button>
-          <button>Book ticket</button>
+          <button  (click)="openModal('custom-modal-1')">Book ticket</button>
         <button class="btn1" (click)="closeModal('custom-modal-2');">Close</button>
         </div>
        </div>
@@ -411,23 +430,40 @@
 </jw-modal>
 
 <jw-modal id="custom-modal-1">
-  <div class="con">
+  <div class="con" >
      <div class="one">
-     <label>Name: <input type="text"></label>
-     <label>Number of seats: <input type="text"></label>
-     <label>Movie Date: <input type="text"></label>
-     <label>Movie Name: <input type="text"></label>
-     <label>Select Theater: <input type="text"></label>
-     <label>Movie Time: <input type="text"></label>
-     <label>Movie Price: <input type="text"></label>
-     <label>Phone Number: <input type="text"></label>
-     <label>show timings: <input type="text"></label>
+     <label>Name: <input type="text" name="ticket" [(ngModel)]="ticket.name" ></label>
+     <label>Number of seats: <input type="number" name="no_of_seats" [(ngModel)]="ticket.no_of_seats"></label>
+     <label>Movie Date: <input type="date" min="{{minDate}}" name="movie_date" [(ngModel)]="ticket.movie_date"></label>
+     <label for="website">Movies:</label>  
+     <select  class="form-control" name="movie_name" [(ngModel)]="ticket.movie_name"> 
+        <option>Choose Movie</option>
+       <option *ngFor="let mov of movies">{{mov.movie_name}}</option> 
+     </select>  
+     <label>Select Theater:</label>
+     <select  class="form-control" name="theater_name" [(ngModel)]="ticket.theater_name"> 
+      <option>Choose Theater</option>
+     <option *ngFor="let thea of theaters">{{thea.theatre_name}}</option> 
+   </select> 
+     <!-- <label>Movie Time: <input type="text" name="movie_time" [(ngModel)]="ticket.movie_time"></label>  -->
+   
+    <!-- <label>select your slot</label>
+    <select  class="form-control" name="movie_time" [(ngModel)]="ticket.movie_time"> 
+      <option>Choose Movie</option>
+     <option>10.30 am</option> 
+     <option>02.00 pm</option> 
+     <option>05.30 pm </option>
+     <option>09.00 pm</option>
+   </select>   -->
+     <label>Movie Price: <input type="text" disabled="true" name="price" [(ngModel)]="ticket.price"></label>
+     <label>Phone Number: <input type="number" name="ph_no" [(ngModel)]="ticket.ph_no"></label>
+     <!-- <label>show timings: <input type="text"></label> -->
      <p>click confirm to select seats</p>
-     <button>Confirm</button>
+     <button (click)="onsubmit()">Confirm</button>
      </div>
      <div class="two">
       <div class="four">
-        <h2>JEAMS</h2>
+        <h2>Book ticket</h2>
       </div>
       <div class="seatStructure">
           
@@ -435,11 +471,11 @@
          <p id="notification"></p>
           <tr>
             <td colspan="14"><div class="screen">SCREEN</div></td>
-            <td rowspan="20">
+            <!-- <td rowspan="20">
               <div class="smallBox greenBox">Selected Seat</div> <br/>
               <div class="smallBox redBox">Reserved Seat</div><br/>
               <div class="smallBox emptyBox">Empty Seat</div><br/>
-            </td>
+            </td> -->
             
             <br/>
           </tr>
@@ -451,7 +487,6 @@
             <td>3</td>
             <td>4</td>
             <td>5</td>
-            <td></td>
             <td>6</td>
             <td>7</td>
             <td>8</td>
@@ -463,12 +498,11 @@
           
         <tr>
             <td>A</td>
-            <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A1" name="A1"></td>
+            <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A1"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A2"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A5"></td>
-            <td class="seatGap"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="A8"></td>
@@ -485,7 +519,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="B3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="B4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="B5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="B6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="B7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="B8"></td>
@@ -502,7 +535,6 @@
             <td><input type="checkbox"   (change)=" checkCheckBoxvalue($event)" class="seats" value="C3"></td>
             <td><input type="checkbox"   (change)=" checkCheckBoxvalue($event)" class="seats" value="C4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="C5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="C6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="C7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="C8"></td>
@@ -519,7 +551,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="D3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="D4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="D5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="D6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="D7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="D8"></td>
@@ -536,7 +567,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="E3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="E4"></td>
             <td><input type="checkbox" class="seats" value="E5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="E6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="E7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="E8"></td>
@@ -546,7 +576,7 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="E12"></td>
         </tr>
           
-        <tr class="seatVGap"></tr>
+        <!-- <tr class="seatVGap"></tr> -->
           
         <tr>
             <td>F</td>
@@ -555,7 +585,6 @@
             <td><input type="checkbox"   (change)=" checkCheckBoxvalue($event)" class="seats" value="F3"></td>
             <td><input type="checkbox"   (change)=" checkCheckBoxvalue($event)" class="seats" value="F4"></td>
             <td><input type="checkbox"   (change)=" checkCheckBoxvalue($event)" class="seats" value="F5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="F6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="F7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="F8"></td>
@@ -572,7 +601,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="G3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="G4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="G5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="G6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="G7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="G8"></td>
@@ -589,7 +617,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="H3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="H4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="H5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="H6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="H7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="H8"></td>
@@ -606,7 +633,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="I3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="I4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="I5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="I6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="I7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="I8"></td>
@@ -623,7 +649,6 @@
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="J3"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="J4"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="J5"></td>
-            <td></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="J6"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="J7"></td>
             <td><input type="checkbox"  (change)=" checkCheckBoxvalue($event)" class="seats" value="J8"></td>
@@ -637,11 +662,11 @@
         </table>
         <div class="five">
           <p>Seat number you booked: {{seat}}  </p>
-          <p>Total amount: 850Rs</p>
-          <p>Movie Timings:3.45pm</p>
+          <p>Total amount: {{seats_no}}</p>
+          <p>movie time: </p>
         </div>
         <div class="six">
-        <button (click)="submit($event)">Confirm selecting</button>
+        <button (click)="onConfirm()">Confirm selecting</button>
         <button class="btn1" (click)="closeModal('custom-modal-1');">Close</button>
         </div>
        

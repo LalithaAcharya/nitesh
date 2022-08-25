@@ -1,0 +1,45 @@
+.section{
+    height:auto;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to left bottom, #ffffff, #cbc6e0, #9890c0, #675da1, #312e81);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:88.2vh;
+}
+.container{
+    position: relative;
+    top:110px;
+    width:60%;
+    height:60vh;
+    background: linear-gradient(to right, #016070, #312e81);
+    display: flex;
+  
+}
+.first{
+    width:320px;
+    height:auto;
+    position: relative;
+    top:-20px;
+    left:20px;
+}
+
+.first img{
+    width:320px;
+    height:480px;
+}
+
+.second{
+    text-align: center;
+    /* border:1px solid white; */
+    width:500px;
+    height:auto;
+    position: relative;
+    left:50px;
+    color:white;
+    padding:10px 10px;
+}
+.second h1{
+    border:1px solid white;
+
+
+}

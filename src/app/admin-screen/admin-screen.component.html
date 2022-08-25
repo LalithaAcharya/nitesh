@@ -1,0 +1,19 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="section">
+<div class="container">
+   <div class="first">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU">
+   </div>
+   <div class="second" *ngIf="theatre">
+    <h1>{{theatre.theatre_name}}</h1><br><br>
+    <p>Location: {{theatre.location}}</p>
+    <label>Number of screens:</label>
+    <input type="number" name="movie_name" [(ngModel)]="theatre.theatre_name">
+    <!-- <p>Hero:  {{movie.hero}}</p>
+    <p>Heroin: {{movie.heroien}}</p> -->
+    <!-- <p>Price: 250Rs</p>
+    <p>Discription: James is a 2022 Indian Kannada-language action drama film written and directed by Chethan Kumar. It stars Puneeth Rajkumar and Priya Anand. This is Puneeth's posthumous appearance following his death on 29 October 2021. The film marked the second collaboration between Puneeth, Priya and Sarathkumar after Raajakumara. </p> -->
+   </div>
+</div>
+<!-- <button routerLink="/adminHome" class="btn1">Back</button> -->
+</div>

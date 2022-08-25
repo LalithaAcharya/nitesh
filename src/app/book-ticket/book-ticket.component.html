@@ -1,1 +1,55 @@
 <app-user-navbar></app-user-navbar>
+<div class="section">
+<table class="rwd-table" >
+    <tbody>
+      <tr>
+        <th>Ticket no</th>
+        <th>Name</th>
+        <th>ph.no</th>
+        <th>Seats</th>
+        <th>Movie name</th>
+        <th>Price</th>
+        <th>Theatre name</th>
+        <th>Movie Date</th>
+        <th>Total amount</th>
+        <!-- <th>Rateing</th> -->
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let thea of tickets">
+        <td>
+            {{thea.ticket_id}}
+          </td>
+        <td>
+          {{thea.name}}
+        </td>
+        <td>
+          {{thea.ph_no}}
+        </td>
+        <td>
+          {{thea.no_of_seats}}
+        </td>
+        <td>
+          {{thea.movie_name}}
+        </td>
+        <td>
+            {{thea.price}}
+          </td>
+        <td>
+            {{thea.theater_name}}
+        </td>
+        <td>
+            {{thea.movie_date}}
+        </td>
+        <td>
+            {{thea.price*thea.no_of_seats}}
+        </td>
+        <td data-th="Net Amount">
+            <button class="btn" (click)="deletepost(thea.ticket_id)">Cancel</button>
+            <!-- <button class="btn">Download</button> -->
+          </td>
+      </tr>
+       
+    </tbody>
+  </table>
+  <button class="btn1" routerLink="/userHome">Back</button>
+  </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-navbar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
+  }
+  logout(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'You have logged out successfully',
+      showConfirmButton: true
+    }).then((result)=>{
+      this.route.navigate(['/admin']);
+    })
   }
 
 }

@@ -4,7 +4,7 @@
     background-image: linear-gradient(to left bottom, #ffffff, #cbc6e0, #9890c0, #675da1, #312e81);
     background-repeat: no-repeat;
     background-size: cover;
-    /* min-height:88.2vh; */
+    min-height:88.2vh;
 }
 
 @import url('http://fonts.googleapis.com/css?family=Poppins');
@@ -80,6 +80,12 @@ button {
     transform: skewX(40deg) translateX(100px);
     animation: btnshine 1s cubic-bezier(0.97, 0.02, 0.44, 0.99) infinite;
   }
+
+  .btn{
+    font-size: 1rem;
+    color: white;
+    background-color: #312e81;
+  }
   @keyframes btnshine {
     from {
       transform: skewX(40deg) translateX(-90px);
@@ -88,21 +94,30 @@ button {
       transform: skewX(40deg) translateX(100px);
     }
   }
-.container .card{
+
+  .container .card{
     position: relative;
-    width: 250px;
-    height: 350px;
+    padding:10px 10px;
+    width: 350px;
+    height: auto;
     margin: 20px auto;
+    border-radius:16px;
   /* From https://css.glass */
-    background: rgba(255, 255, 255, 0);
+    background: #f8f0d9;
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.963);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid #000;
     transition: 0.5s;
 }
-.container .card:hover{
+.fa-video-camera, .fa-theater-masks{
+    font-size:80px;
+    padding-top:10px;
+    padding-left:40px;
+    color:#312e81;
+}
+/*.container .card:hover{
     box-shadow: 0 30px 50px rgba(0,0,0,.2);
 }
 .container .card .face{
@@ -119,36 +134,35 @@ button {
     box-sizing: border-box;
     padding: 20px;
     text-align: center;
-   /* From https://css.glass */
+   /* From https://css.glass 
     background: rgba(255, 255, 255, 0);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.63);
-    /* color: #ffff; */
+    /* color: #ffff; 
 }
 .container .card .face.face1 h2{
     margin-top: 80px;
 }
-.container .card .face.face1 button{
+.container .card .face.face1 a{
     display: inline-block;
     padding: 10px 15px;
     margin-top: 20px;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     border-radius: 20px;
-    background-color: #fff;
-    /* border:2px solid #e4bd3c; */
-    background-color: #e4bd3c;
+    /* border:2px solid #e4bd3c; 
+    background-color: #312e81;
     transition: 0.5s;
 }
-.container .card .face.face1 button:hover{
-    color:#fff;
-    background: #312e81;
+.container .card .face.face1 a:hover{
+    color:#000;
+    background: #ffff;
 }
 .container .card .face.face2{
-    /* background: #312e81; */
+    /* background: #312e81; 
     border-radius: 16px;
     transition: 0.5s;
 }
@@ -160,7 +174,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
     background: transparent;
-    /* border:2px solid #312e81; */
+    /* border:2px solid #312e81; 
 }
 .container .card .face.face2 img{
     margin: 0px;
@@ -172,40 +186,80 @@ button {
     transition: 0.5s;
 }
 .container .card:hover .face.face2 img{
-    /* color:#312e81; */
+  
     width:100px;
     height:100px;
     border-radius: 50%;
 }
-
 .content h2{
     background-color: #ffffff;
     width:250px;
     position:relative;
     top:10px;
 }
+ */
 
-.container1{
+ .card {
     position: relative;
-    top:110px;
-    width:60%;
-    height:60vh;
-    background: linear-gradient(to right, #016070, #312e81);
+    margin: 150px auto;
+    width: 450px;
+    padding: 20px;
+    box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    border: 0;
+}
+.card .circle {
+    border-radius: 3px;
+    width: 150px;
+    height: 150px;
+    background: black;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    border-top-right-radius:16px;
+    border-bottom-left-radius: 170px;
+}
+.card .content {
+    margin-top: 25px;
     display: flex;
-  
+    flex-direction: column;
 }
-.first{
-    width:320px;
-    height:auto;
-    position: relative;
-    top:-20px;
-    left:20px;
+.card h1 {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.card h2 {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+.card .social {
+    margin-bottom: 5px;
+}
+.card .social a {
+    text-decoration: none !important;
+    color: black;
+    margin-left: 8px;
+    font-weight: 300;
+}
+.card .social a i {
+    font-weight: 400;
+}
+.card .location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card .location i {
+    color: red;
+}
+.card .location p {
+    font-weight: 300;
 }
 
-.first img{
-    width:320px;
-    height:480px;
-}
 
 .second{
     text-align: center;
@@ -271,6 +325,11 @@ button {
 .second h1{
     border:1px solid black;
 
+
+}
+
+.button1{
+    min-width:100px;
 }
 .third{ 
     position: relative;

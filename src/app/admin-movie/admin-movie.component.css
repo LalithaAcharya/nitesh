@@ -183,3 +183,7 @@
     width:400px;
     background-color: bisque;
   }
+
+  .alert{
+    color:red;
+  }

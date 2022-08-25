@@ -1,1 +1,52 @@
 <app-admin-navbar></app-admin-navbar>
+<div class="section">
+   <div class="container">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Edit Movie</h4>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-2">
+              <i class="fas fa-envelope prefix grey-text">Movie name</i>
+              <input type="text" id="defaultForm" class="form-control validate" name="movie_name" [(ngModel)]="movie.movie_name">
+            </div>
+
+            <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Language</i>
+                <input type="text" id="defaultForm" class="form-control validate" name="language" [(ngModel)]="movie.language">
+              </div>
+    
+            <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Director</i>
+                <input type="text" id="defaultForm" class="form-control validate" name="director" [(ngModel)]="movie.director">
+              </div>
+
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Hero</i>
+                <input id="defaultForm" class="form-control validate" name="hero" [(ngModel)]="movie.hero">
+              </div>
+
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Heroien</i>
+                <input id="defaultForm" class="form-control validate" name="heroien" [(ngModel)]="movie.heroien">
+              </div>
+    
+              <div class="md-form mb-2">
+                <i class="fas fa-envelope prefix grey-text">Discription</i>
+                <input id="defaultForm"  class="form-control validate" name="discription" [(ngModel)]="movie.discription">
+                <!-- <label>Poster name</label> -->
+              </div>
+
+              <!-- <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="defaultForm" class="form-control validate">
+                <label>Discription</label>
+              </div> -->
+          </div>
+     
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <button type="button"routerLink="/adminMovie" class="btn btn-primary" >Back</button>
+    </div>
+    </div>
+    </div>
+ 

@@ -1,73 +1,115 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 <app-admin-navbar></app-admin-navbar>
 <div class="section">
   <div class="container-fluid">
     <h2>Movies</h2>
     <button routerLink="/adminMovie">More</button>
   </div>
-    <div class="container">
-        <div class="card">
-          <div class="face face1">
-            <div class="content">
-              <h2>Charlie</h2>
-              <a href="#">View Details</a>
-            </div>
-          </div>
-          <div class="face face2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
-          </div>
-        </div>
-        <div class="card">
-          <div class="face face1">
-            <div class="content">
-              <h2>Charlie</h2>
-              <a href="#">View Details</a>
-            </div>
-          </div>
-          <div class="face face2">
-            <img src="https://m.media-amazon.com/images/M/MV5BNDljMWQxZjQtODllNi00MzljLTg3ZGUtNDU4Zjk2NTAzMWQ2XkEyXkFqcGdeQXVyNDY3NTMzOTM@._V1_.jpg" alt="charlie">
-          </div>
-        </div>
-        <div class="card">
-          <div class="face face1">
-            <div class="content">
-              <h2>Charlie</h2>
-              <a href="#">View Details</a>
-            </div>
-          </div>
-          <div class="face face2">
-            <img src="https://m.media-amazon.com/images/M/MV5BNDljMWQxZjQtODllNi00MzljLTg3ZGUtNDU4Zjk2NTAzMWQ2XkEyXkFqcGdeQXVyNDY3NTMzOTM@._V1_.jpg" alt="charlie">
-          </div>
-        </div>
-        <div class="card">
-          <div class="face face1">
-            <div class="content">
-              <h2>Charlie</h2>
-              <a href="#">View Details</a>
-            </div>
-          </div>
-          <div class="face face2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
-          </div>
-        </div>
+  <div class="container">
+    <div class="card" *ngFor="let mov of movies">
+      <div class="title">
+    <h1>{{mov.movie_name}}</h1>
+    <h2>Language: {{mov.language}}</h2>
+  </div>
+  <div class="content">
+<div class="social">
+       <h2><strong>Overview</strong></h2>
+    <h2>Director:
+     {{mov.director}}</h2>
+    </div>
+    
+<div class="social">
+  <h2>Hero:
+    {{mov.hero}}</h2>
+    </div>
+    
+<div class="social">
+  <h2>Heroien:
+    {{mov.heroien}}</h2>
+    </div>
+  <div class="social">
+    <h2>Discription:
+      {{mov.discription}}</h2>
+      <!-- <i class="fa-solid fa-camera-movie"></i> -->
       </div>
+    </div>
+<div class="circle"><i class='fa fa-video-camera'></i></div>
+</div>
+</div>
+    <!-- <div class="container">
+        <div class="card"  *ngFor="let mov of movies">
+          <div class="face face1">
+            <div class="content">
+              <h2>{{mov.movie_name}}</h2>
+              <a><button (click)="ondetails(mov.movie_id)">View Details</button></a>
+            </div>
+          </div>
+          <div class="face face2">
+            <img src="{{mov.poster}}" alt="charlie">
+          </div>
+        </div> -->
+        <!-- <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <h2>Charlie</h2>
+              <a href="/movieDetail">View Details</a>
+            </div>
+          </div>
+          <div class="face face2">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDljMWQxZjQtODllNi00MzljLTg3ZGUtNDU4Zjk2NTAzMWQ2XkEyXkFqcGdeQXVyNDY3NTMzOTM@._V1_.jpg" alt="charlie">
+          </div>
+        </div>
+        <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <h2>Charlie</h2>
+              <a href="#">View Details</a>
+            </div>
+          </div>
+          <div class="face face2">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDljMWQxZjQtODllNi00MzljLTg3ZGUtNDU4Zjk2NTAzMWQ2XkEyXkFqcGdeQXVyNDY3NTMzOTM@._V1_.jpg" alt="charlie">
+          </div>
+        </div>
+        <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <h2>Charlie</h2>
+              <a href="#">View Details</a>
+            </div>
+          </div>
+          <div class="face face2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
+          </div>
+        </div> -->
+      <!-- </div> -->
 
       <div class="container-fluid">
         <h2>Theater</h2>
-        <button routerLink="/adminMovie">More</button>
+        <button routerLink="/addTheater">More</button>
       </div>
-        <div class="container" style="padding:20px">
-            <div class="card">
-              <div class="face face1">
-                <div class="content">
-                  <h2>Charlie</h2>
-                  <a href="#">View Details</a>
-                </div>
-              </div>
-              <div class="face face2">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
-              </div>
-            </div>
-            <div class="card">
+      <div class="container">
+        <div class="card" *ngFor="let thea of theatres">
+          <div class="title">
+        <h1>{{thea.theatre_name}}</h1>
+        <h2>Location: {{thea.location}}</h2>
+      </div>
+      <div class="content">
+    <div class="social">
+           <h2><strong>Overview</strong></h2>
+        <h2>Movie:
+         {{thea.movie_name}}</h2>
+        </div>
+        
+    <div class="social">
+      <h2>Seats:
+        {{thea.no_of_screens}}</h2>
+        </div>
+        
+    <div class="circle"><i class='fas fa-theater-masks'></i></div>
+    </div>
+    </div>
+            <!-- <div class="card">
               <div class="face face1">
                 <div class="content">
                   <h2>Charlie</h2>
@@ -99,7 +141,7 @@
               <div class="face face2">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1POrwQevu2cvct90wHLRUnLiY9qG02fJ6dA&usqp=CAU" alt="charlie">
               </div>
-            </div>
-          </div>
+            </div> -->
+          
 
 </div>

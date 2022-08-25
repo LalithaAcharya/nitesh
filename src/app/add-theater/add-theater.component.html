@@ -15,41 +15,91 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body mx-3">
+              <form class="modal-body mx-3" #myForm="ngForm">
                 <div class="md-form mb-2">
-                  <i class="fas fa-envelope prefix grey-text"></i>
-                  <input type="email" id="defaultForm" class="form-control validate">
-                  <label>Theater name</label>
+                  <i class="fas fa-envelope prefix grey-text">Theater name</i>
+                  <input type="text" id="defaultForm" class="form-control"  required minlength="4" appForbiddenName="bob" name="movie_name" [(ngModel)]="theatre.theatre_name" #name="ngModel">
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                      class="alert">
+                    <div *ngIf="name.errors?.['required']">
+                     Name is required.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                      </div>
+                       <div *ngIf="name.errors?.['forbiddenName']">
+                         Name cannot be Bob.
+                      </div>
                 </div>
         
                 <div class="md-form mb-2">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm" class="form-control validate">
-                    <label>Location</label>
+                    <i class="fas fa-envelope prefix grey-text">Location</i>
+                    <input type="text" id="defaultForm" class="form-control" required minlength="4" appForbiddenName="bob" name="location" [(ngModel)]="theatre.location" #location="ngModel">
+                    <div *ngIf="location.invalid && (location.dirty || location.touched)"
+                      class="alert">
+                    <div *ngIf="location.errors?.['required']">
+                      Location is required.
+                    </div>
+                    <div *ngIf="location.errors?.['minlength']">
+                      Location must be at least 4 characters long.
+                      </div>
+                       <div *ngIf="location.errors?.['forbiddenName']">
+                        Location cannot be Bob.
+                      </div>
+                      </div>
                   </div>
 
-                  <div class="md-form mb-2">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input id="defaultForm" class="form-control validate">
-                    <label >Screens</label>
+                  <div class="md-form mb-2" >
+                    <i class="fas fa-envelope prefix grey-text">Seats</i>
+                    <input type="number" id="defaultForm" class="form-control" required  appForbiddenName="bob" name=" no_of_screens" [(ngModel)]="theatre.no_of_screens" #seat="ngModel">
+                    <div *ngIf="seat.invalid && (seat.dirty || seat.touched)"
+                      class="alert">
+                    <div *ngIf="seat.errors?.['required']">
+                      Seat is required.
+                    </div>
+                       <div *ngIf="seat.errors?.['forbiddenName']">
+                        Seat cannot be Bob.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="md-form mb-2" >
+                    <i class="fas fa-envelope prefix grey-text">Movies</i>  
+                    <select  class="form-control" required  appForbiddenName="bob" name="movie_name" [(ngModel)]="theatre.movie_name" #movie="ngModel"> 
+                       <option>Choose Movie</option>
+                      <option *ngFor="let mov of movies">{{mov.movie_name}}</option> 
+                        <!-- <option>{{mov.movie_name}}</option>   -->
+                        <!-- <option>Choose Website</option>  
+                        <option >cghjk,mcfyuio,m</option>   -->
+                    </select>  
+                    <div *ngIf="movie.invalid && (movie.dirty || movie.touched)"
+                    class="alert">
+                  <div *ngIf="movie.errors?.['required']">
+                    Movie is required.
+                  </div>
+                     <div *ngIf="movie.errors?.['forbiddenName']">
+                      Movie cannot be Bob.
+                    </div>
+                  </div>
                   </div>
 
-                  <div class="md-form mb-2">
+
+                   <!-- <div class="md-form mb-2" *ngFor="let screen of createRange(showStorage.no_of_screens); let i=index">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input id="defaultForm" class="form-control validate">
-                    <label>Movies</label>
-                  </div>
-        
-                  <div class="md-form mb-2">
+                    <input type="number" id="defaultForm" class="form-control validate" name="no_of_goldseats">
+                    <label>no_of_gold_seats</label>
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm" class="form-control validate">
-                    <label>Rateing</label>
-                  </div> 
-              </div>
+                    <input type="number" id="defaultForm" class="form-control validate">
+                    <label>no_of_silver_seats</label>
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm" class="form-control validate">
+                    <label>Movie</label>
+                  </div>  -->
+        </div>
+                </form>
             </div>
           </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Submit</button>
+          <button type="button"  [disabled]="!myForm.form.valid" class="btn btn-primary"  (click)="onsubmit()">Submit</button>
           <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Cancel</button>
         </div>
       </ng-template>
@@ -59,99 +109,34 @@
       <tr>
         <th>Theater Name</th>
         <th>Location</th>
-        <th>Screens</th>
+        <th>Seats</th>
         <th>Movies</th>
-        <th>Rateing</th>
+        <!-- <th>Rateing</th> -->
         <th>Action</th>
       </tr>
-      <tr>
-        <td data-th="Supplier Code">
-          UPS5005
+      <tr *ngFor="let thea of theatres">
+        <td>
+          {{thea.theatre_name}}
         </td>
-        <td data-th="Supplier Name">
-          UPS
+        <td>
+          {{thea.location}}
         </td>
-        <td data-th="Invoice Number">
-          ASDF19218
+        <td>
+          {{thea.no_of_screens}}
         </td>
-        <td data-th="Invoice Date">
-          06/25/2016
-        </td>
-        <td data-th="Net Amount">
-          $8,322.12
+        <td>
+          {{thea.movie_name}}
         </td>
         <td data-th="Net Amount">
-            <button class="btn">Delete</button>
-            <button class="btn" (click)="open(mymodal1)">Edit</button>
+            <button class="btn" (click)="deletepost(thea.theatre_id)">Delete</button>
+            <button class="btn" (click)="update(thea.theatre_id)">Edit</button>
           </td>
       </tr>
-      <tr>
-        <td data-th="Supplier Code">
-          UPS3449
-        </td>
-        <td data-th="Supplier Name">
-          UPS South Inc.
-        </td>
-        <td data-th="Invoice Number">
-          ASDF29301
-        </td>
-        <td data-th="Invoice Date">
-          6/24/2016
-        </td>
-        <td data-th="Net Amount">
-          $3,255.49
-        </td>
-        <td data-th="Net Amount">
-            <button class="btn">Delete</button>
-            <button class="btn"  (click)="open(mymodal1)">Edit</button>
-          </td>
-      </tr>
-      <tr>
-        <td data-th="Supplier Code">
-          BOX5599
-        </td>
-        <td data-th="Supplier Name">
-          BOX Pro West
-        </td>
-        <td data-th="Invoice Number">
-          ASDF43000
-        </td>
-        <td data-th="Invoice Date">
-          6/27/2016
-        </td>
-        <td data-th="Net Amount">
-          $45,255.49
-        </td>
-        <td data-th="Net Amount">
-            <button class="btn">Delete</button>
-            <button class="btn" (click)="open(mymodal1)">Edit</button>
-          </td>
-      </tr>
-      <tr>
-        <td data-th="Supplier Code">
-          PAN9999
-        </td>
-        <td data-th="Supplier Name">
-          Pan Providers and Co.
-        </td>
-        <td data-th="Invoice Number">
-          ASDF33433
-        </td>
-        <td data-th="Invoice Date">
-          6/29/2016
-        </td>
-        <td data-th="Net Amount">
-          $12,335.69
-        </td>
-        <td data-th="Net Amount">
-            <button class="btn">Delete</button>
-            <button class="btn" (click)="open(mymodal1)">Edit</button>
-          </td>
-      </tr>
+       
     </tbody>
   </table>
 
-  <ng-template #mymodal1 let-modal class="modal">
+  <!-- <ng-template #mymodal1 let-modal class="modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
@@ -197,7 +182,7 @@
       <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Submit</button>
       <button type="button" class="btn btn-primary"  (click)="modal.close('Save click')">Cancel</button>
     </div>
-  </ng-template>
+  </ng-template> -->
 
 </div>
 

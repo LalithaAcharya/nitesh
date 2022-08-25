@@ -1,11 +1,15 @@
+
+
 export class Movie{
-    movieId!:number;
-    movieName!:string;
-    language!:string;
+    movie_id!:number;
+    movie_name!:string;
+    poster!:string;
     director!:string;
     hero!:string;
-    heroein!:string;
-    theaterName!:string;
-    releaseDate!:Date;
+    heroien!:string;
+    language!:string;
     discription!:string;
+    // movieImages!:FileHandle[]
+    // theaterName!:string;
+    // screen_id!:number;
 }

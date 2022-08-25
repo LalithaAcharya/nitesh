@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } 
+from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +19,16 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { ModalComponent } from './modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UpdateTheatreComponent } from './update-theatre/update-theatre.component';
+import { TheaterDetailsComponent } from './theater-details/theater-details.component';
+import { AdminScreenComponent } from './admin-screen/admin-screen.component';
+import { UserMovieDetailsComponent } from './user-movie-details/user-movie-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
+import { AdminContactComponent } from './admin-contact/admin-contact.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { AdminTicketComponent } from './admin-ticket/admin-ticket.component'
 
 @NgModule({
   declarations: [
@@ -36,13 +46,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserNavbarComponent,
     BookTicketComponent,
     MovieDetailsComponent,
-    ModalComponent
+    ModalComponent,
+    UpdateTheatreComponent,
+    TheaterDetailsComponent,
+    AdminScreenComponent,
+    UserMovieDetailsComponent,
+    ContactComponent,
+    AdminContactComponent,
+    AdminTicketComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgToastModule
   ],
 
   providers: [],

@@ -1,0 +1,36 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="section">
+<table class="rwd-table" >
+    <tbody>
+      <tr>
+        <th>Custome Name</th>
+        <th>Email-ID</th>
+        <th>Message/Query</th>
+        <!-- <th>Seats</th>
+        <th>Movie name</th>
+        <th>Price</th>
+        <th>Theatre name</th>
+        <th>Movie Date</th>
+        <th>Total amount</th>
+        <th>Rateing</th> 
+        <th>Action</th> -->
+      </tr>
+      <tr *ngFor="let thea of customers">
+        <td>
+            {{thea.name}}
+          </td>
+        <td>
+          {{thea.email}}
+        </td>
+        <td>
+          {{thea.message}}
+        </td>
+        <!-- <td data-th="Net Amount">
+            <button class="btn"">Cancel</button>
+            <button class="btn">Download</button>
+          </td> -->
+      </tr>
+       
+    </tbody>
+  </table>
+  </div>
