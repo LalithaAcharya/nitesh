@@ -1,12 +1,13 @@
 <app-user-navbar></app-user-navbar>
 <div class="section">
-<table class="rwd-table" >
+<table class="rwd-table" id="contentToConvert" >
     <tbody>
       <tr>
         <th>Ticket no</th>
         <th>Name</th>
-        <th>ph.no</th>
+        <th>Show Time</th>
         <th>Seats</th>
+        <th>Seats Name</th>
         <th>Movie name</th>
         <th>Price</th>
         <th>Theatre name</th>
@@ -23,11 +24,14 @@
           {{thea.name}}
         </td>
         <td>
-          {{thea.ph_no}}
+          {{thea.movie_time}}
         </td>
         <td>
           {{thea.no_of_seats}}
         </td>
+        <td>
+          {{thea.seats}}
+      </td>
         <td>
           {{thea.movie_name}}
         </td>
@@ -45,11 +49,13 @@
         </td>
         <td data-th="Net Amount">
             <button class="btn" (click)="deletepost(thea.ticket_id)">Cancel</button>
-            <!-- <button class="btn">Download</button> -->
+            <button class="btn">
+              <a download="http://localhost:4200/bookTicket">Download</a></button>
           </td>
       </tr>
        
     </tbody>
   </table>
+  <!-- <input type="button" value="CPTURE" (click)="captureScreen()"/> -->
   <button class="btn1" routerLink="/userHome">Back</button>
   </div>

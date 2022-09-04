@@ -8,4 +8,5 @@ export class Ticket{
     movie_time!:string;
     price!:number;
     ph_no!:number;
+    seats:string[]=[];
 }
